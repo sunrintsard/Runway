@@ -1,0 +1,54 @@
+name: 'build DS token when token.json file changes'
+
+on:
+  push:
+    paths:
+      - 'packages/core/src/token/token.json'
+    branches: [main]
+
+jobs:
+  build-token:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        node-version: [18]
+    
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 8
+
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+        
+      - name: Install dependencies
+        run: pnpm install
+      
+      - name: Build tokens
+        run: npm run build:token
+      
+      - name: Configure Git
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+      
+      - name: Commit and push if changes exist
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git add -A
+            git commit -m "chore(ci): update design system tokens [skip ci]"
+            git push
+          else
+            echo "No changes to commit"
+          fi
