@@ -1,24 +1,12 @@
 {
   "name": "runway",
-  "version": "0.0.1",
-  "description": "SARD Design System",
+  "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/sunrintsard/Runway.git"
-  },
-  "keywords": [
-    "SARD",
-    "design",
-    "kit"
-  ],
-  "author": "iamfiro",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/sunrintsard/Runway/issues"
-  },
-  "homepage": "https://github.com/sunrintsard/Runway#readme"
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

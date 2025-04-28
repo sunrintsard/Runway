@@ -1,0 +1,35 @@
+{
+  "name": "@sard-runway/core",
+  "version": "0.0.1",
+  "description": "Design token for SARD runway",
+  "private": false,
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "rollup -c",
+    "prepublishOnly": "npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sunrintsard/Runway.git"
+  },
+  "keywords": [
+    "design-token",
+    "runway",
+    "sard"
+  ],
+  "author": {
+    "name": "Sungju Cho",
+    "email": "hello@devfiro.com",
+    "url": "https://github.com/iamfiro"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sunrintsard/Runway/issues"
+  },
+  "files": [
+    "dist"
+  ],
+  "homepage": "https://github.com/sunrintsard/Runway#readme"
+}
