@@ -1,0 +1,5 @@
+node_modules
+.vscode
+*.log
+tsconfig.json
+pnpm-lock.yaml
